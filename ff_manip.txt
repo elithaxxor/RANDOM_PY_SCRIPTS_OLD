@@ -1,0 +1,159 @@
+[+] -- [INIIATING TRIM SEQUENCE] [+] 
+Wed Nov 24 22:24:18 2021[+]  
+	 Completion Seconds [1637821461.388] 
+ -2.689160108566284output(filename='output.mp4')[None] <148f29375b37>meta
+input(filename='/Users/adelal-aali/Documents/CS/PROJECT/IP_CHECK/random.mp4')[None] <1fabe9201a90>
+
+encoding start[+] -- [INIIATING TRIM SEQUENCE] [+] 
+Thu Nov 25 00:45:06 2021
+
+encoding end[+]  
+	 Completion Seconds [1637829948.894] 
+ -42.15903115272522
+
+encoding data output(filename='new_movie.mov')[None] <16de39a5c1d7>
+
+meta
+input(filename='/Users/adelal-aali/Documents/CS/PROJECT/IP_CHECK/random.mp4')[None] <1fabe9201a90>
+
+trim data[+] -- [INIIATING TRIM SEQUENCE] [+] 
+Thu Nov 25 00:49:49 2021
+
+trim_start[+]  
+	 Completion Seconds [1637830192.362] 
+ -2.8897149562835693
+
+trim_end[+]  
+	 Completion Seconds [1637830192.362] 
+ -2.8897149562835693
+
+output(filename='defaultmovie.mp4')[None] <d48578b8615a>meta
+input(filename='/Users/adelal-aali/Documents/CS/PROJECT/IP_CHECK/random.mp4')[None] <1fabe9201a90>
+
+trim data[+] -- [INIIATING TRIM SEQUENCE] [+] 
+Thu Nov 25 01:35:01 2021
+
+trim_start[+]  
+	 Completion Seconds [1637832926.491] 
+ -24.96988797187805
+
+trim_end[+]  
+	 Completion Seconds [1637832926.491] 
+ -24.96988797187805
+
+output(filename='newvid.mp4')[None] <1e1f8ade885b>meta
+input(filename='/Users/adelal-aali/Documents/CS/PROJECT/IP_CHECK/random.mp4')[None] <1fabe9201a90>
+
+trim data[+] -- [INIIATING TRIM SEQUENCE] [+] 
+Thu Nov 25 02:02:42 2021
+
+trim_start[+]  
+	 Completion Seconds [1637834587.423] 
+ -24.84488010406494
+
+trim_end[+]  
+	 Completion Seconds [1637834587.423] 
+ -24.84488010406494
+
+output(filename='new_refresh.mp4')[None] <1ef2a6044581>metainput(filename='/Users/adelal-aali/Documents/CS/PROJECT/IP_CHECK/random.mp4')[None] <1fabe9201a90>
+encoding start[+] -- [INIIATING TRIM SEQUENCE] [+] 
+Thu Nov 25 02:03:30 2021		 [FPS] --[25]
+encoding end1637834662.1053991
+encoding metaoutput(filename='new_refresh.mp4')[None] <1acd49e4fcf0>
+meta
+input(filename='/Users/adelal-aali/Documents/CS/PROJECT/IP_CHECK/random.mp4')[None] <1fabe9201a90>
+
+encoding start[+] -- [INIIATING TRIM SEQUENCE] [+] 
+Thu Nov 25 02:14:49 2021
+
+encoding end[+]  
+	 Completion Seconds [1637835332.592] 
+ -42.859668016433716
+
+encoding data output(filename='.mov')[None] <ee16b4364bc4>
+
+meta
+input(filename='/Users/adelal-aali/Documents/CS/PROJECT/IP_CHECK/random.mp4')[None] <1fabe9201a90>
+
+trim data[+] -- [INIIATING TRIM SEQUENCE] [+] 
+Thu Nov 25 02:15:36 2021
+
+trim_start[+]  
+	 Completion Seconds [1637835363.826] 
+ -27.53333616256714
+
+trim_end[+]  
+	 Completion Seconds [1637835363.826] 
+ -27.53333616256714
+
+output(filename='sample_video.mp4')[None] <19c234c22841>metainput(filename='/Users/adelal-aali/Documents/CS/PROJECT/IP_CHECK/random.mp4')[None] <1fabe9201a90>
+encoding start[+] -- [INIIATING TRIM SEQUENCE] [+] 
+Thu Nov 25 02:16:29 2021		 [FPS] --[15]
+encoding end1637835435.9491699
+encoding metaoutput(filename='sample_video.mp4')[None] <3502b7b0649a>
+metainput(filename='/Users/adelal-aali/Documents/CS/PROJECT/IP_CHECK/random.mp4')[None] <1fabe9201a90>Scale Start[+] -- [INIIATING VIDEO-SCALER] -- [+] 
+Thu Nov 25 02:17:28 2021Resolution400x400Scale End-52.513355016708374Scale metaoutput(filename='sample_video.mp4')[None] <3502b7b0649a>meta
+input(filename='/Users/adelal-aali/Documents/CS/PROJECT/IP_CHECK/random.mp4')[None] <1fabe9201a90>
+
+encoding start[+] -- [INIIATING TRIM SEQUENCE] [+] 
+Thu Nov 25 02:24:12 2021
+
+encoding end[+]  
+	 Completion Seconds [1637835895.032] 
+ -42.19712805747986
+
+encoding data output(filename='NEW_VIDEO.mp4')[None] <45009879bed9>
+
+meta
+input(filename='/Users/adelal-aali/Documents/CS/PROJECT/IP_CHECK/random.mp4')[None] <1fabe9201a90>
+
+trim data[+] -- [INIIATING TRIM SEQUENCE] [+] 
+Thu Nov 25 02:24:59 2021
+
+trim_start[+]  
+	 Completion Seconds [1637835927.147] 
+ -27.39584517478943
+
+trim_end[+]  
+	 Completion Seconds [1637835927.147] 
+ -27.39584517478943
+
+output(filename='new_vid.mov')[None] <127dfb56458c>metainput(filename='/Users/adelal-aali/Documents/CS/PROJECT/IP_CHECK/random.mp4')[None] <1fabe9201a90>
+encoding start[+] -- [INIIATING TRIM SEQUENCE] [+] 
+Thu Nov 25 02:25:37 2021		 [FPS] --[20]
+encoding end1637835988.719748
+encoding metaoutput(filename='new_vid.mov')[None] <1f1a592de82f>
+metainput(filename='/Users/adelal-aali/Documents/CS/PROJECT/IP_CHECK/random.mp4')[None] <1fabe9201a90>Scale Start[+] -- [INIIATING VIDEO-SCALER] -- [+] 
+Thu Nov 25 02:26:54 2021Resolution300x300Scale End-54.17252588272095Scale metaoutput(filename='new_vid.mov')[None] <1f1a592de82f>meta
+input(filename='/Users/adelal-aali/Documents/CS/PROJECT/IP_CHECK/random.mp4')[None] <1fabe9201a90>
+
+encoding start[+] -- [INIIATING TRIM SEQUENCE] [+] 
+Thu Nov 25 05:07:12 2021
+
+encoding end[+]  
+	 Completion Seconds [1637845698.399] 
+ -65.52729916572571
+
+encoding data output(filename='NEW_FILE_300000.mov')[None] <128665999d18>
+
+meta
+input(filename='/Users/adelal-aali/Documents/CS/PROJECT/IP_CHECK/random.mp4')[None] <1fabe9201a90>
+
+trim data[+] -- [INIIATING TRIM SEQUENCE] [+] 
+Thu Nov 25 05:08:21 2021
+
+trim_start[+]  
+	 Completion Seconds [1637845743.72] 
+ -42.05097222328186
+
+trim_end[+]  
+	 Completion Seconds [1637845743.72] 
+ -42.05097222328186
+
+output(filename='new_file_200000.mov')[None] <1c7f47337e99>metainput(filename='/Users/adelal-aali/Documents/CS/PROJECT/IP_CHECK/random.mp4')[None] <1fabe9201a90>
+encoding start[+] -- [INIIATING TRIM SEQUENCE] [+] 
+Thu Nov 25 05:09:09 2021		 [FPS] --[15]
+encoding end1637845831.892117
+encoding metaoutput(filename='new_file_200000.mov')[None] <13c06567689a>
+metainput(filename='/Users/adelal-aali/Documents/CS/PROJECT/IP_CHECK/random.mp4')[None] <1fabe9201a90>Scale Start[+] -- [INIIATING VIDEO-SCALER] -- [+] 
+Thu Nov 25 05:10:34 2021Resolution300x300Scale End-84.35563707351685Scale metaoutput(filename='new_file_200000.mov')[None] <13c06567689a>
