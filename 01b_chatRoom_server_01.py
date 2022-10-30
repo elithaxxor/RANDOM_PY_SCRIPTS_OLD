@@ -4,7 +4,7 @@ import time
 from tqdm import tqdm
 
 
-port = 33331
+port = 22221
 new_socket = socket.socket()
 host_name = socket.gethostname()
 address = socket.gethostbyname(host_name)

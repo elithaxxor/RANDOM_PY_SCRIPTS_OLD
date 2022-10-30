@@ -203,13 +203,18 @@ class change_info():
     CURRENT_CLOCK = time.ctime(CURRENT_TIME)
     CLASS_PATH = pathlib.Path.cwd()
 
-    def __init__(self, p):  # declared here instead of class head
+    def __init__(self, path_to_work_in):  # declared here instead of class head
         # change_dirs = self.change_dirs
-        self.p = p
+        self.p = path_to_work_in
         self.cwd = os.getcwd()
         self.current_time = time.time()
         self.current_clock = time.ctime(self.current_time)
         self.class_parent = pathlib.Path(__file__).parent.resolve()  ##
+        self.PARENT = pathlib.Path(__file__).parent.resolve()
+        self.CURRENT_USER = os.path.basename(self.PARENT)
+        self.NORMALIZE_PATH = os.path.normpath(self.PARENT)
+        self.REAL_PATH = os.path.realpath(self.PARENT)
+        self.WSL_PATH = pathlib.Path.cwd()
 
     @classmethod  ## will print the class location, without (p) PATH object declared in functional portion
     def info_fromClass(cls):
@@ -222,21 +227,14 @@ class change_info():
         print(f'{bblue} {cls.CLASS_PATH} {reset}')
 
     def get_sys_info(self):
-        # print('** ::Getting System Info :: && Starting Threading Process ::')
-        # while self.busy:
         print(f' :: {blue} Getting System Info ::,\n current time {reset} {yellow} {self.CURRENT_CLOCK} {reset}')
         global PARENT
-        PARENT = pathlib.Path(__file__).parent.resolve()
-        CURRENT_USER = os.path.basename(PARENT)
-        NORMALIZE_PATH = os.path.normpath(PARENT)
-        REAL_PATH = os.path.realpath(PARENT)
-        WSL_PATH = pathlib.Path.cwd()
         print(f'* Path Object (p) {red} {p} {reset}')
-        print(f'* WSL Path {bblue} {WSL_PATH}{reset}')
-        print(f'* Current User: {bblue}{CURRENT_USER}{reset}')
-        print(f'* Parent Directory {bblue}{PARENT}{reset}')
-        print(f"* Normalized Path {bblue}{NORMALIZE_PATH}{reset}")
-        print(f"* Real Path {bblue}{REAL_PATH}{reset}")
+        print(f'* WSL Path {bblue} {self.WSL_PATH}{reset}')
+        print(f'* Current User: {bblue}{self.CURRENT_USER}{reset}')
+        print(f'* Parent Directory {bblue}{self.PARENT}{reset}')
+        print(f"* Normalized Path {bblue}{self.NORMALIZE_PATH}{reset}")
+        print(f"* Real Path {bblue}{self.REAL_PATH}{reset}")
 
     @staticmethod  ## find len to get a stop pass
     def write_info(info):
@@ -877,14 +875,13 @@ class change_info():
             print(f'{red}**Ending Sequence {reset}')
             return f'{yellow}**Completed Seach-By-Ext sequence{reset}\n{bblue}{self.p}{reset}\n{yellow}{self.CURRENT_CLOCK}{reset}'
 
-    def display_all_folders(self):
+    def display_all_folders(self, p):
         print('X' * 50)
         print(f'Displaying All Folders for \n \t\t {yellow} {self.p} {reset} \n \t\t {yellow} {self.CURRENT_CLOCK} {reset}')
 
         for root, dirs, files in os.walk(p, topdown=False, followlinks=True):
             #folder_list = root + dirs
             print(f'{yellow} :: Folders Found :: {reset} \n {root} + {dirs} + {files}')
-
             return dirs
 
 
@@ -929,7 +926,7 @@ class change_info():
 
 
     def display_subdirs(self):
-        subdirs = [x for x in p.iterdir() if x.is_dir()]
+        subdirs = [x for x in self.p.iterdir() if x.is_dir()]
         subdirs.sort()
         pprint.pprint(subdirs)
 
@@ -969,19 +966,20 @@ class change_info():
         else:
             print(f'No duplicate files found.')
 
-    def find_duplicates(self, p):
+    def find_duplicates(self):
         dups = {}
         print(f'{yellow}**CWD INFO {reset} :: ')
         print(f'{change_info.get_sys_info}')
         print(f' [+] Finding Duplicates, \n [+] current time {self.CURRENT_CLOCK}')
         # while self.busy:  # thread t0
         print(f'[+] ALL FOLDERS  -- ')
-        folders = change_info.display_all_folders(self)
         print(f'[+] Sub Dirs -- ')
         change_info.display_subdirs(self)
         print('[+] This is self.p ', self.p)
         folder_path = self.p
         folder_path = str(folder_path)
+        folders = change_info.display_all_folders(folder_path)
+
         print('')
         dupe_list = []
 
@@ -995,6 +993,7 @@ class change_info():
                 sys.exit()
 
         counter = 0
+        removed_dirs = []
         for dirName, subDirname, filelist in os.walk(folder_path, topdown=False, followlinks=True):
             #duplciate_01 = folder_path + '/' + dirName
             #duplciate_02 = folder_path + '/' + subDirname
@@ -1004,10 +1003,20 @@ class change_info():
                 file_hash = change_info.hashfile(path)
              #   print(f'[+] File Hash\n {file_hash}')
                 if file_hash in dups:
-                    print(f'[+] File DUP HASH \n {file_hash}')
-                    print(f'[+] Counter : {counter}')
-                    dups[file_hash].append(path)
-                    counter+=1
+                    try:
+                        print(f'{counter}] [+] -- [ [FOUND DUPLICATE HASH] --  \n {file_hash}')
+                        dups[file_hash].append(path)
+                        counter+=1
+                        os.rmdir(path)
+                        removed_dirs.append(path)
+                    except Exception: pass
+
+                    # for dir in os.scandir(folder_path):
+                    #     try:
+                    #         os.rmdir(dir)
+                    #         removed_dirs.append(dir)
+                    #     except Exception: pass
+
                 else:
                     dups[file_hash] = [path]
         print(f'[+] Counter : {counter}')
@@ -1082,11 +1091,14 @@ class change_info():
         pass
 
     @staticmethod
-    def readWrite_check():
+    def readWrite_check(p):
         print(f'{blue}** Testing for filesystem read/write.. {reset} ')
         period = ['.', '.', '.', '.', '.', '.', '.', '.', '.', '.']
         # multi = [2,2,2,2,2,2,2,2,2,2]
         period_len = len(period)
+       # self.p = Path(p)
+        p = Path(p)
+
         with Spinner():
             for z, x in enumerate(period):
                 print(x)
@@ -1132,29 +1144,30 @@ class change_info():
                         print(f'{red}** Path Is Writable \n[PATH]*[{p}] {reset}')
                         sys.exit(1)
 
+                    if p.exists() and os.access(p, os.R_OK) and os.access(p, os.W_OK):
+                        current_platform = platform.platform()
+                        if platform.platform():  # == "Linux-4.4.0-22000-Microsoft-x86_64-with-glibc2.32":
+                            print(
+                                f'**It seems you may be on {yellow} {current_platform} {reset} \n {red}*The program may not work as expected if unture.{reset} ')
+                            # CURRENT_TIME = time.time()
+                            # CURRENT_CLOCK = time.ctime(CURRENT_TIME)
+                            # CLASS_PATH = pathlib.Path.cwd()
+                            class_info = change_info(p)
+                            wsl_path = pathlib.Path.cwd()
+
+                            print(f'{red} {class_info.info_fromClass()}{reset}'), print()
+                            print('X' * 50)
+                            print(f'* :: Path from Pathlib :: \n\t {yellow} *[{wsl_path}] {reset}')
+                            print(), print()
+                            ######### FOR THREADING #######
+
+
         except OSError as ose:
             traceback.print_exc()
             print(str(ose))
         except Exception as E:
             traceback.print_exc()
             print(str(E))
-
-        if p.exists() and os.access(p, os.R_OK) and os.access(p, os.W_OK):
-            current_platform = platform.platform()
-            if platform.platform():  # == "Linux-4.4.0-22000-Microsoft-x86_64-with-glibc2.32":
-                print(
-                    f'**It seems you may be on {yellow} {current_platform} {reset} \n {red}*The program may not work as expected if unture.{reset} ')
-                # CURRENT_TIME = time.time()
-                # CURRENT_CLOCK = time.ctime(CURRENT_TIME)
-                # CLASS_PATH = pathlib.Path.cwd()
-                class_info = change_info(p)
-                wsl_path = pathlib.Path.cwd()
-
-                print(f'{red} {class_info.info_fromClass()}{reset}'), print()
-                print('X' * 50)
-                print(f'* :: Path from Pathlib :: \n\t {yellow} *[{wsl_path}] {reset}')
-                print(), print()
-                ######### FOR THREADING #######
 
 
 #
@@ -1200,7 +1213,8 @@ def is_admin():
         return ctypes.windll.shell32.IsUserAnAdmin()
     except:
         return False
-
+width = os.get_terminal_size().columns  # set the width to center goods
+terminal = os.environ.get('TERM')
 
 
 def main():
@@ -1410,7 +1424,7 @@ def main():
     ## or while?
     #    os.access(cwd) used for read write and save
 
-    change_info.readWrite_check()
+    change_info.readWrite_check(path_to_work_in)
     try:
         fail_tick = 0
         while fail_tick <= 3:
@@ -1521,13 +1535,13 @@ def main():
                 ###################################### DISPLAY DUPLICATES #####################################################
                 # find_duplicates = file_00.find_duplicates(p)
                 elif choice in parsing_displayDupe:
-                    same_files = file_00.find_duplicates(p)
                     with Spinner():
                         print(f'** {bblue}initiating {red} --FILE-- {reset} display-dupe-sequence {reset}')
-                        find_duplicates = file_00.find_duplicates(p)
+                        find_duplicates = file_00.find_duplicates()
                         x = f'{red} add amt of duplicaters {reset}'
                         print(f'** System found {x} {find_duplicates}')
                         pass
+                   # same_files = file_00.find_duplicates()
 
                 ## ask uswer what they want to do. 1. display only files. 2. display duplicates. 3. group-move similar files.
                 ## MOVE FOLDERS
@@ -1548,7 +1562,7 @@ def main():
 
                 if choice in parsing_organizeFiles:
                     # move_files = file_00.move_files(p)
-                    with Spinner()
+                    with Spinner():
                         print(f'** {bblue}initiating find_duplicates sequence {reset}')
                         organize_files = folder_00.organize_junk()
                         print(organize_files)
