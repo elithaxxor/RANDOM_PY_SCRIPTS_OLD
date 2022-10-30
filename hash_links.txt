@@ -1,0 +1,8 @@
+/Users/adelal-aali/Documents/CS/PROJECT/ssh_clients/TEST_FILE/motion_detection.py
+/Users/adelal-aali/Documents/CS/PROJECT/ssh_clients/TEST_FILE/logistic_regression.py
+/Users/adelal-aali/Documents/CS/PROJECT/ssh_clients/TEST_FILE/scandir_test.py
+/Users/adelal-aali/Documents/CS/PROJECT/ssh_clients/TEST_FILE/small_project.py
+/Users/adelal-aali/Documents/CS/PROJECT/ssh_clients/TEST_FILE/main.py
+/Users/adelal-aali/Documents/CS/PROJECT/ssh_clients/TEST_FILE/multiple_linearRegression.py
+/Users/adelal-aali/Documents/CS/PROJECT/ssh_clients/TEST_FILE/hash_links.txt
+/Users/adelal-aali/Documents/CS/PROJECT/ssh_clients/TEST_FILE/machine_basics.py
