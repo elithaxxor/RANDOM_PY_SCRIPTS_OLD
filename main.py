@@ -1,17 +1,26 @@
-# coding=utf-8
-# This is a sample Python script.
+import os, sys, traceback, io, time
+import pyinstaller
 
-# Press ⌃R to execute it or replace it with your code.
-# Press Double ⇧ to search everywhere for classes, files, tool windows, actions, and settings.
+# pip3 install pyinstaller
+
+cwd = os.getcwd()
+py_name = '/sample.py'
+py_path = str(cwd) + py_name
+dir_contents = os.listdir(cwd)
 
 
-def print_hi(name):
-    # Use a breakpoint in the code line below to debug your script.
-    print("Hi, {0}".format(name))  # Press ⌘F8 to toggle the breakpoint.
+def conversion():
+    pass
+
+def main():
+    print('[!] Py Script to convert file to .exe [change {py_name} in source]')
+    print(f'[+] Working on {py_name}\n\n\t{py_path}')
 
 
-# Press the green button in the gutter to run the script.
-if __name__ == '__main__':
-    print_hi('PyCharm')
+if __name__ == "__main__":
+    main()
 
-# See PyCharm help at https://www.jetbrains.com/help/pycharm/
+#  pyinstaller --onefile -w (for gui)
+#  pyinstaller --onefile (for cli)
+
+pyinstaller --onefile py_name
