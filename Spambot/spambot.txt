@@ -1,0 +1,8 @@
+this is spam text
+created in the terminal
+using cat > 
+and possibly echo?
+who knows
+spam
+spam 
+spam spam
