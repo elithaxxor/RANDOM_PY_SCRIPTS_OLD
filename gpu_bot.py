@@ -1,4 +1,4 @@
-### DESCRIBE METHODS TO BE CALLED
+
 import os
 import re
 import time
@@ -15,8 +15,6 @@ from selenium.webdriver.chrome.options import Options
 import constants as const
 from selenium.webdriver import Chrome
 from selenium.common.exceptions import NoSuchElementException
-
-
 
 
 

@@ -17,7 +17,7 @@ from selenium.webdriver import Chrome
 
 
 class Booking(webdriver.Chrome): # use webdriver .chrome methods and designed methods in bookings
-    PATH = r"/Users/a-robot/PycharmProjects/pythonProject/gpu_venv"
+    PATH = r"/Users/macbook/Documents/CS/PROJECT/AutoDownloader/TEST_DOWNLOADS/Selenium_Project/chromedriver"
     chrome_options = Options
     #chrome_options.add_extension(r"/Users/macbook/Documents/CS/PROJECT/AutoDownloader/TEST_DOWNLOADS/Selenium_Project/ad_blocker.crx")
     url_frame = WebDriverWait
@@ -40,7 +40,7 @@ class Booking(webdriver.Chrome): # use webdriver .chrome methods and designed me
         self.implicitly_wait(15)
         self.maximize_window()
         options = self.chrome_options()
-        options.add_extension("/Users/a-robot/PycharmProjects/pythonProject/gpu_venv/ad_blocker.crx")
+        options.add_extension("/Users/macbook/Documents/CS/PROJECT/AutoDownloader/TEST_DOWNLOADS/Selenium_Project/ad_blocker.crx")
         #self.chrome_options.
 
 
@@ -126,6 +126,8 @@ class Booking(webdriver.Chrome): # use webdriver .chrome methods and designed me
         self.set_window_size(S('Width'), S('Height'))
         self.find_element_by_id('search-results').screenshot('FINALFRESHIT111.png')
         time.sleep(2)
+
+
 
         self.save_screenshot("FREESHIT02.png")
         time.sleep(3)

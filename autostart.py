@@ -1,15 +1,12 @@
-import os
 from datetime import datetime
-
-
+import os
 def write_file(filename, data):
     if os.path.isfile(filename):
-        with open(filename, "a") as f:
-            f.write("\n" + data)
+        with open(filename, 'a') as f:
+            f.write('\n' + data)
     else:
-        with open(filename, "w") as f:
-            f.write(data)
-
+        with open(filename, 'w') as f:
+            f.write(data), f'/'
 
 def print_time():
     now = datetime.now()
@@ -17,15 +14,12 @@ def print_time():
     data = "Current Time = " + current_time
     return data
 
+write_file('test.txt', print_time())
+pwd00 = input('Enter the file name to automate: ')
+write_file=(pwd00, '')
 
-try:
-    write_file("test.txt", print_time())
-    pwd00 = input("Enter the file name to automate: ")
-    write_file = (pwd00, "")
-    print_time()
 
-except Exception as e:
-    print(str(e))
+
 
 
 # String	Meaning	Equivalent to
