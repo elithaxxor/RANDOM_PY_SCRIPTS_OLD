@@ -1,0 +1,6 @@
+# simple linear regression
+
+from sklearn.linear_model import LinearRegression
+
+lm = LinearRegression()
+lm
