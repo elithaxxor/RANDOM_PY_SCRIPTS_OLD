@@ -1,0 +1,1 @@
+elevator=deadline quiet bootmenutimeout=10 datadev=mmcblk0p2 "init=/bin/sh"
